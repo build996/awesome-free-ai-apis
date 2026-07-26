@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "updated": "2026-07",
+  "note": "Free tiers change often. Several providers (Google, Mistral) have removed published limits behind a login; those are marked 'unpublished'. Confirm against the linked guide before building.",
+  "categories": {
+    "llm_inference": [
+      { "provider": "Groq", "free": "generous daily limits, OpenAI-compatible", "catch": "per-model rate limits, tightened over time", "commercial": true, "guide": "https://toolfreebie.com/groq-fastest-free-ai-api/" },
+      { "provider": "Cerebras", "free": "free API, fastest small-model inference", "catch": "smaller model selection", "commercial": true, "guide": "https://toolfreebie.com/cerebras-free-api/" },
+      { "provider": "SambaNova Cloud", "free": "Llama 3.3 70B, DeepSeek V3.1 at 400+ tok/s", "catch": "modest free RPD", "commercial": true, "guide": "https://toolfreebie.com/sambanova-cloud-free-api/" },
+      { "provider": "Google Gemini", "free": "genuine free tier", "catch": "limits login-gated / unpublished", "commercial": true, "guide": "https://toolfreebie.com/gemini-free-ai-api/" },
+      { "provider": "OpenRouter", "free": ":free model variants, ~20 req/min ~50/day", "catch": "$10 one-time credit raises to ~1000/day", "commercial": true, "guide": "https://toolfreebie.com/openrouter-free-ai-models/" },
+      { "provider": "GLM (Zhipu / Z.ai)", "free": "3 genuinely free models, OpenAI + Anthropic compatible", "catch": "international access via Z.ai", "commercial": true, "guide": "https://toolfreebie.com/glm-free-api/" },
+      { "provider": "DeepSeek", "free": "open weights, self-host for $0", "catch": "hosted endpoint is paid", "commercial": true, "guide": "https://toolfreebie.com/deepseek-free-api/" },
+      { "provider": "Kimi K2 (Moonshot)", "free": "open weights via OpenRouter :free or self-host", "catch": "own endpoint is cheap prepaid, not free", "commercial": true, "guide": "https://toolfreebie.com/kimi-k2-api-free/" },
+      { "provider": "Qwen3-Coder", "free": "Apache-2.0 weights, OpenRouter :free or self-host", "catch": "free Qwen OAuth tier discontinued 2026-04-15", "commercial": true, "guide": "https://toolfreebie.com/qwen3-coder-free-api/" },
+      { "provider": "Grok (xAI)", "free": "up to $150/month credits", "catch": "requires data-sharing opt-in; not free by default", "commercial": true, "guide": "https://toolfreebie.com/grok-api-free-credits/" },
+      { "provider": "Mistral", "free": "free tier + Apache-2.0 weights (Nemo, Mixtral)", "catch": "free-tier limits went dark (login-gated)", "commercial": true, "guide": "https://toolfreebie.com/mistral-free-api/" },
+      { "provider": "Cohere", "free": "free trial API, best free embedding + rerank for RAG", "catch": "trial keys rate-limited", "commercial": true, "guide": "https://toolfreebie.com/cohere-rag-api/" },
+      { "provider": "Together AI", "free": "free FLUX.1 [schnell] endpoint", "catch": "chat models are paid", "commercial": true, "guide": "https://toolfreebie.com/together-ai-free-api-llama-deepseek-flux-2026/" },
+      { "provider": "Cloudflare Workers AI", "free": "10000 Neurons/day, no card", "catch": "neuron budget shared across models", "commercial": true, "guide": "https://toolfreebie.com/cloudflare-workers-ai/" },
+      { "provider": "GitHub Models", "free": "free GPT-4o & Llama for developers", "catch": "low rate limits, prototyping only", "commercial": true, "guide": "https://toolfreebie.com/github-models-free-api/" },
+      { "provider": "NVIDIA NIM", "free": "free API credits across many models", "catch": "credit-capped", "commercial": true, "guide": "https://toolfreebie.com/nvidia-nim-free-api/" },
+      { "provider": "Hugging Face", "free": "~$0.10/mo inference credits + Spaces ZeroGPU", "catch": "tiny credit, unlocks thousands of models", "commercial": true, "guide": "https://toolfreebie.com/hugging-face-spaces-free-gpu/" }
+    ],
+    "multimodal": [
+      { "task": "image", "best": "Cloudflare Workers AI (~230 FLUX/day), Pollinations (keyless)", "catch": "commercial use depends on model license; FLUX.1 [schnell] = Apache 2.0", "guide": "https://toolfreebie.com/free-image-generation-api/" },
+      { "task": "ocr", "best": "OCR.space (25000 req/mo, no card)", "catch": "1 MB / 3-page file caps", "guide": "https://toolfreebie.com/free-ocr-api-pdf/" },
+      { "task": "speech-to-text", "best": "free Whisper API options", "catch": "limits vary by provider", "guide": "https://toolfreebie.com/free-whisper-api-compared/" },
+      { "task": "text-to-speech", "best": "free TTS API options", "catch": "voice/character caps", "guide": "https://toolfreebie.com/free-text-to-speech-api/" }
+    ]
+  }
+}
