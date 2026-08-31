@@ -75,7 +75,7 @@ Free APIs and open-source tools that feed and route your models — search, scra
 
 ## How to pick
 
-- **Fastest small-model responses →** Groq — we measured `gpt-oss-20b` at **~1,100 tok/s** from a US runner
+- **Fastest responses →** Groq — we measured `gpt-oss-120b` at **~525 tok/s** from a US runner, about 3× the next provider
 - **Big models for free →** OpenRouter — its free `nemotron-3-super-120b` beat NVIDIA's own API in our test
 - **One key, many models →** OpenRouter
 - **RAG (embed + rerank) →** Cohere
