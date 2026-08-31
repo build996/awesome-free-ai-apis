@@ -14,7 +14,7 @@ Vendor docs go stale within weeks, so we benchmark them instead. Our open harnes
 
 What that turned up in **August 2026**:
 
-- **Groq is the speed king** — `gpt-oss-20b` at **~1,100 tok/s**, `gpt-oss-120b` at ~525 tok/s.
+- **Groq is the speed king** — `gpt-oss-120b` measured at **~525 tok/s**, roughly 3× the next provider. (Smaller models on Groq sometimes report far higher figures, but those runs stream in a single buffered chunk, which inflates the number; we exclude them rather than publish a result we can't stand behind.)
 - **OpenRouter served NVIDIA's own `nemotron-3-super-120b` faster than NVIDIA did** — 45.7 vs 36.7 tok/s, and a third of the latency.
 - **GitHub Models is dead** (`410`, retired July 30 2026), and **DeepSeek, SambaNova, Together, Cerebras and xAI now all want a card or a deposit**.
 - **Gemini 3.6-flash is a reasoning model** — 17–30 seconds of thinking before the first token, so tokens/second is the wrong lens for it.
@@ -84,6 +84,20 @@ Free APIs and open-source tools that feed and route your models — search, scra
 Full side-by-side: **[Best Free AI APIs 2026](https://toolfreebie.com/best-free-ai-apis-2026/)** · Speed shootout: **[Groq vs Cerebras vs Gemini](https://toolfreebie.com/groq-vs-cerebras-vs-gemini/)**
 
 ---
+
+---
+
+## Related lists
+
+Part of a small set of measured, regularly re-checked references:
+
+| Repo | Covers |
+|---|---|
+| **[free-ai-api-benchmark](https://github.com/build996/free-ai-api-benchmark)** | The harness behind the numbers here — speed, quotas, agent tasks, weekly runs |
+| **[actually-free-hosting](https://github.com/build996/actually-free-hosting)** | Where to *run* what you build: free VPS, PaaS, static and databases |
+| **[free-host-speedtest](https://github.com/build996/free-host-speedtest)** | A page for measuring free hosting speed yourself |
+
+Same principle across all of them: **verify, then publish** — and say plainly when a free tier has quietly died.
 
 ## Contributing
 
