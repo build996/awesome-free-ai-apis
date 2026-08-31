@@ -8,6 +8,19 @@ Most "free AI API" lists tell you a provider *has* a free tier. They rarely tell
 
 Each row links to a hands-on write-up with runnable code and the current details.
 
+## We measure these ourselves
+
+Vendor docs go stale within weeks, so we benchmark them instead. Our open harness — **[free-ai-api-benchmark](https://github.com/build996/free-ai-api-benchmark)** — runs every provider from a US GitHub Actions runner and measures three things: **generation speed** (from each API's own `usage` token counts), **real quotas** (read from live `x-ratelimit-*` headers, not the docs), and **capability** (four programmatic pass/fail tasks: strict JSON, code, Chinese, long-context retrieval).
+
+What that turned up in **August 2026**:
+
+- **Groq is the speed king** — `gpt-oss-20b` at **~1,100 tok/s**, `gpt-oss-120b` at ~525 tok/s.
+- **OpenRouter served NVIDIA's own `nemotron-3-super-120b` faster than NVIDIA did** — 45.7 vs 36.7 tok/s, and a third of the latency.
+- **GitHub Models is dead** (`410`, retired July 30 2026), and **DeepSeek, SambaNova, Together, Cerebras and xAI now all want a card or a deposit**.
+- **Gemini 3.6-flash is a reasoning model** — 17–30 seconds of thinking before the first token, so tokens/second is the wrong lens for it.
+
+Full write-up with every number: **[Free AI APIs Tested](https://toolfreebie.com/free-ai-api-speed-test/)**.
+
 ---
 
 ## Chat / LLM inference APIs
@@ -16,19 +29,19 @@ Each row links to a hands-on write-up with runnable code and the current details
 |---|---|---|---|
 | **Groq** | Free API, generous daily limits, OpenAI-compatible; fastest small-model inference | Rate-limited per model; limits tightened over time | [Guide](https://toolfreebie.com/groq-fastest-free-ai-api/) |
 | **Cerebras** | Wafer-scale speed on GPT-OSS / Llama; **$5/month trial credit** | **Card now required (2026)** — the old no-card free tier is gone | [Guide](https://toolfreebie.com/cerebras-free-api/) |
-| **SambaNova Cloud** | Free tier runs **big** models (Llama 3.3 70B, DeepSeek V3.1) at 400+ tok/s | Free RPD is modest | [Guide](https://toolfreebie.com/sambanova-cloud-free-api/) |
+| **SambaNova Cloud** | Big models (Llama 3.3 70B, DeepSeek V3.x) at 400+ tok/s | **Card now required (2026)** — we hit `402 PAYMENT_METHOD_REQUIRED`, balance 0 | [Guide](https://toolfreebie.com/sambanova-cloud-free-api/) |
 | **Google Gemini** | Genuine free tier, strong models | **Limits now login-gated / unpublished** — you can't plan around them | [Guide](https://toolfreebie.com/gemini-free-ai-api/) |
 | **OpenRouter** | `:free` variants of many open models via one OpenAI-compatible endpoint | ~20 req/min, ~50/day free; a one-time $10 credit raises it to ~1,000/day | [Guide](https://toolfreebie.com/openrouter-free-ai-models/) |
 | **GLM (Zhipu / Z.ai)** | Three genuinely free models (not expiring trial credits); OpenAI **and** Anthropic compatible | International access via Z.ai | [Guide](https://toolfreebie.com/glm-free-api/) |
-| **DeepSeek** | Open weights you can self-host for $0; new accounts get API trial credit | **V3/R1 retired 2026 → V4 (pay-per-token)**; hosted endpoint isn't free | [Guide](https://toolfreebie.com/deepseek-free-api/) |
+| **DeepSeek** | Open weights you can self-host for $0; new accounts get API trial credit | **V3/R1 retired 2026 → V4**; we hit `402 Insufficient Balance` — the hosted API now needs funds | [Guide](https://toolfreebie.com/deepseek-free-api/) |
 | **Kimi K2 (Moonshot)** | Open-weights model → free via OpenRouter `:free` or self-host | Moonshot's own endpoint is cheap prepaid, **not** free | [Guide](https://toolfreebie.com/kimi-k2-api-free/) |
 | **Qwen3-Coder** | Apache-2.0 open weights; free via OpenRouter `:free` or self-host | Free Qwen OAuth tier was **discontinued 2026-04-15** | [Guide](https://toolfreebie.com/qwen3-coder-free-api/) |
 | **Grok (xAI)** | Up to **$150/month** in API credits | Only via opting into the data-sharing program; not free by default | [Guide](https://toolfreebie.com/grok-api-free-credits/) |
 | **Mistral** | Free tier + Apache-2.0 open weights (Nemo, Mixtral) | Free-tier limits **went dark** (login-gated) | [Guide](https://toolfreebie.com/mistral-free-api/) |
 | **Cohere** | Free trial API — the best free **embedding + rerank** for RAG | Trial keys are rate-limited | [Guide](https://toolfreebie.com/cohere-rag-api/) |
-| **Together AI** | Free FLUX.1 [schnell] endpoint behind the same OpenAI-compatible key | Chat models are paid | [Guide](https://toolfreebie.com/together-ai-free-api-llama-deepseek-flux-2026/) |
+| **Together AI** | Free FLUX.1 [schnell] endpoint behind an OpenAI-compatible key | **Deposit required (2026)** — new accounts land in read-only mode | [Guide](https://toolfreebie.com/together-ai-free-api-llama-deepseek-flux-2026/) |
 | **Cloudflare Workers AI** | **10,000 Neurons/day** free, no card; hard-stops instead of billing | Neuron budget is shared across all models | [Guide](https://toolfreebie.com/cloudflare-workers-ai/) |
-| **GitHub Models** | Free GPT-4o & Llama access for developers | Low rate limits, for prototyping | [Guide](https://toolfreebie.com/github-models-free-api/) |
+| ~~**GitHub Models**~~ | ~~Free GPT-4o & Llama for developers~~ | **RETIRED July 30, 2026** — the API returns `410`; we verified it's gone | [What to use instead](https://toolfreebie.com/github-models-free-api/) |
 | **NVIDIA NIM** | Free API credits across many models | Credit-capped | [Guide](https://toolfreebie.com/nvidia-nim-free-api/) |
 | **Hugging Face** | ~$0.10/mo inference credits + Spaces **ZeroGPU** (time-sliced A100) | Tiny credit, but unlocks thousands of models | [Guide](https://toolfreebie.com/hugging-face-spaces-free-gpu/) |
 | **Alibaba Bailian** | Free-tier access to **Qwen & DeepSeek** models via Alibaba's OpenAI-compatible API | Regional access; free quotas modest | [Guide](https://toolfreebie.com/alibaba-bailian-free-api/) |
@@ -62,8 +75,8 @@ Free APIs and open-source tools that feed and route your models — search, scra
 
 ## How to pick
 
-- **Fastest small-model responses →** Groq or Cerebras
-- **Big models for free →** SambaNova
+- **Fastest small-model responses →** Groq — we measured `gpt-oss-20b` at **~1,100 tok/s** from a US runner
+- **Big models for free →** OpenRouter — its free `nemotron-3-super-120b` beat NVIDIA's own API in our test
 - **One key, many models →** OpenRouter
 - **RAG (embed + rerank) →** Cohere
 - **No rate limit at all →** self-host open weights (Qwen3-Coder, Kimi K2, DeepSeek, Mistral)
